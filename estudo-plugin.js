@@ -1,10 +1,20 @@
 
 
 (function($) {
-  // $ é o jQuery no escopo do plugin
-  // Poderia ser qualquer apelido
-  $.fn.titulo= function(campeonato){
-	    this.append(campeonato);
-    return this;
-  };
+	$.fn.fila = function(opcoes) {
+ 
+  	// opções padrão
+  	var defaults = {
+      first: 'first',
+    	last: 'last'
+  	};
+
+  	opcoes = $.extend(defaults, opcoes);
+
+    return this.each(function(){
+        if(opcoes.first) $(this).find(':first-child').addClass(opcoes.first);
+        if(opcoes.last) $(this).find(':last-child').addClass(opcoes.last);
+    });  	
+
+  };  
 })(jQuery);
