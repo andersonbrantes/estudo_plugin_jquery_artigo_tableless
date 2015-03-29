@@ -16,13 +16,22 @@
 		<li><a href="">item-5</a></li>
 	</ul>
 
-	<p class="marcaTexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et doloremque necessitatibus recusandae, ullam vitae, ipsum pariatur molestias, impedit sit quod dolor odio quam id porro nostrum consequatur cum asperiores autem.</p>
+		<form method="post" action="index.html">
+			<label>Localizar no texto: <input type="text" name="busca" id="busca" size="30" /></label>
+		</form>
+
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut tortor a lacus lobortis bibendum. Pellentesque ultricies odio id velit sodales quis condimentum turpis vestibulum. Mauris velit lectus, ultricies in mollis ac, commodo sed urna. Nunc volutpat ultricies sapien id rutrum. Donec at nisi id quam malesuada blandit at eget nulla. Proin et arcu vel risus commodo faucibus sed nec eros. Aenean sollicitudin, libero vitae semper ornare, justo dolor iaculis est, vitae luctus mauris mauris eu augue. Aenean blandit, massa at facilisis laoreet, nulla lectus semper turpis, a laoreet justo arcu sed sapien. Vivamus vel purus quis nisi tempus cursus. Quisque at tortor urna, vitae convallis nisi. Quisque tellus magna, venenatis facilisis fermentum at, egestas sit amet lectus. Cras sed sem leo, nec rutrum odio. Nullam non lacus ac nulla varius tempor. Duis vitae semper quam. Donec in mi ipsum, a gravida nibh.
+		</p>
+		<p>
+		Maecenas in dolor purus. Suspendisse potenti. Phasellus eget libero lacus. Nam nec aliquet elit. Etiam porta quam nec libero suscipit pharetra. Vestibulum eget magna felis. Cras luctus, sem vel tincidunt interdum, tortor felis molestie velit, ut sagittis justo ipsum vel urna. In vel dolor nunc, eu condimentum diam. Maecenas convallis ultricies nunc, at ultrices enim lobortis ut. In ut neque eu velit ultricies adipiscing ac sit amet justo. Nunc urna turpis, commodo sit amet ultrices a, tristique vel magna. Cras sed augue nec orci malesuada varius vitae nec neque. Vivamus bibendum turpis eu diam accumsan ac porta risus pellentesque. Aliquam egestas, lacus porttitor eleifend adipiscing, nibh diam volutpat tortor, quis tempus elit ipsum ut dolor. In at pharetra erat. Morbi eleifend viverra massa, quis mollis purus sagittis nec. Ut placerat placerat lacinia. Phasellus quis pulvinar eros. Etiam ultricies massa vel risus volutpat luctus. Duis fermentum imperdiet faucibus.
+		</p>
 
 	<script type="text/javascript"src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="estudo-plugin.js"></script>
 	<script type="text/javascript" src="jquery.marcaTexto.js"></script>
 
-	<script type="scripttext/javascript">
+	<script type="text/javascript">
 		$(document).ready(function(){
 			// $('ul').fila({
 	    //     first: 'primeiro',
@@ -39,15 +48,21 @@
 	    });	
 
 
-	    	$('.marcaTexto').each(function(){
-					 $(this).after( $(this).html() );
-					 $(this).remove();
-				 });
-				// ativa o plugin quando o termo possui mais de um caracter
-				if( $(this).val().length > 1 )
-				{
-					$('p').marcaTexto($(this).val());
-				}
+
+			$('#busca')
+				.focus()
+				.keyup(function(){
+					// limpa marcações anteriores
+					$('.marcaTexto').each(function(){
+						 $(this).after( $(this).html() );
+						 $(this).remove();
+					 });
+					// ativa o plugin quando o termo possui mais de um caracter
+					if( $(this).val().length > 1 )
+					{
+						$('p').marcaTexto($(this).val());
+					}
+				});
 
 		});
 	</script>

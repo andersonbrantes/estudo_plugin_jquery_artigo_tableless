@@ -8,4 +8,5 @@ span.marcaTexto {
     -webkit-box-shadow: 0 0 1em #888;
     box-shadow: 0 0 1em #889;
     padding: 4px;
+    background: yellow;
 }
